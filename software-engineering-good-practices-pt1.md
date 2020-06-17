@@ -53,3 +53,41 @@ print('Task Duration: {} seconds, Category: {}'.format(execution_time, category)
 + Functions should do one thing (Atomize)
 + Arbitrary variable names can be more effective in certain functions
 + Try to use fewer than three arguments per function
+
+**Clean Code Exercise 2 - Refactoring  :**
+
+_You want to replace the spaces in the column labels with underscores to be able to reference columns with dot notation. Here's one way you could've done it._
+
+First solution : 
+
+```
+new_df = df.rename(columns={'fixed acidity': 'fixed_acidity',
+                             'volatile acidity': 'volatile_acidity',
+                             'citric acid': 'citric_acid',
+                             'residual sugar': 'residual_sugar',
+                             'free sulfur dioxide': 'free_sulfur_dioxide',
+                             'total sulfur dioxide': 'total_sulfur_dioxide'
+                            })
+new_df.head()
+```
+
+Refactor solution 1 : 
+
+```
+labels = list(df.columns)
+
+for label in labels :
+    label = label.replace(' ', '_')
+df.columns = labels
+
+df.head()
+```
+
+Refactor solution 2 (Better than before) : 
+
+```
+df.columns = [label.replace(' ', '_') for label in df.columns]
+df.head()
+```
+
+
