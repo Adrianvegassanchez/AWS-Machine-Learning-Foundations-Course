@@ -90,4 +90,64 @@ df.columns = [label.replace(' ', '_') for label in df.columns]
 df.head()
 ```
 
+### Efficient Code
+
++ Execute faster
++ Take up less space in memory/storage
+
+[More about this - What makes sets faster than lists](https://stackoverflow.com/questions/8929284/what-makes-sets-faster-than-lists/8929445#8929445)
+
+Optimizing Code: 
+
+Given a code to find the common book ids in _books_published_last_two_years.txt_ and _all_coding_books.txt_ to obtain a list of recent books.
+
+```
+start = time.time()
+recent_coding_books = []
+
+for book in recent_books:
+    if book in coding_books:
+        recent_coding_books.append(book)
+
+print(len(recent_coding_books))
+print('Duration: {} seconds'.format(time.time() - start))
+
+```
+
+Result : 
+96
+Duration: 17.437314748764038 seconds
+
+**Tip #1: Use vector operations over loops when possible**
+
+Use numpy's intersect1d method to get the intersection of the recent_books and coding_books arrays.
+
+```
+import numpy as np
+
+start = time.time()
+recent_coding_books = np.intersect1d(recent_books, coding_books)
+print(len(recent_coding_books))
+print('Duration: {} seconds'.format(time.time() - start))
+
+```
+
+Result :
+96
+Duration: 0.031774282455444336 seconds
+
+**Tip #2: Know your data structures and which methods are faster**
+
+Use the set's `intersection` method to get the common elements in `recent_books` and `coding_books`.
+
+```
+start = time.time()
+recent_coding_books = set(recent_books).intersection(coding_books)
+print(len(recent_coding_books))
+print('Duration: {} seconds'.format(time.time() - start))
+```
+
+Result : 
+96
+Duration: 0.0070879459381103516 seconds
 
