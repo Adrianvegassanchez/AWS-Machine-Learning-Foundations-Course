@@ -151,3 +151,15 @@ Result :
 96
 Duration: 0.0070879459381103516 seconds
 
+### Documentation
+
+Additional text that comes with or is embedded in the code of software, is helpful for clarifying complex parts of code, making your code easier to navigate.
+Types of documentation that can be added at different levels of your program:
++ **In-line Comments** : line level
++ **Docstrings** : module and function level
++ **Project Documentation** : project level
+
+Some tips abaout documentation : 
++ Comments are useful for clarifying complex code but readeable code is preferable over having comments to make your code readable.
++ Docstrings are useful to explain the purpose of a function or module, you can add whatever details you want in a docstring.
+
