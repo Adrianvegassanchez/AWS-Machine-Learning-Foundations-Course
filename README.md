@@ -1,4 +1,5 @@
-# AWS-Machine-Learning-Foundations-Course
+# AWS-Machine-Learning-Foundations-Course by [Udacity](https://www.udacity.com/)
+
 
 The course is organized into four parts:
 
